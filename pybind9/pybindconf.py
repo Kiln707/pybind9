@@ -1,5 +1,6 @@
 import argparse
 
+options_filename = '/etc/bind/named.conf.options'
 
 if __name__ == "__main__":
     argsp = argparse.ArgumentParser()
@@ -13,7 +14,7 @@ if __name__ == "__main__":
     acl_delete = aclcmdp.add_parser('delete', help='Delete ACL')
     acl_delete.add_argument('name', type=str, nargs='?', help='ACL Name')
     acl_list = aclcmdp.add_parser('list', help='List existing ACLs')
-    
+
     #acl_member = aclcmdp.add_parser('members', help='List members within given ACL')
     #Zone Subparsers
     zone_cmd = cmdp.add_parser('zone', help='Manage Bind9 Zones')
