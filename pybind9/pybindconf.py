@@ -7,13 +7,15 @@ if __name__ == "__main__":
     cmdp=argsp.add_subparsers(title="commands", dest="cmd", help="Command")
     cmdp.required = True
     #Acl Subparsers
-    acl_cmd = cmdp.add_parser('acl',help='Manage Bind9 ACLs')
+    acl_cmd = cmdp.add_parser('acl', help='Manage Bind9 ACLs')
     aclcmdp = acl_cmd.add_subparsers(title='action', dest='action', help="Acl Actions")
+    aclcmdp.required = True
     acl_create = aclcmdp.add_parser('create', help='Create new ACL')
     acl_create.add_argument('name', type=str, nargs='?', help='ACL Name')
     acl_delete = aclcmdp.add_parser('delete', help='Delete ACL')
     acl_delete.add_argument('name', type=str, nargs='?', help='ACL Name')
     acl_list = aclcmdp.add_parser('list', help='List existing ACLs')
+    acl_list.add_argument('name', type=str, nargs='?', help='ACL Name')
 
     #acl_member = aclcmdp.add_parser('members', help='List members within given ACL')
     #Zone Subparsers
